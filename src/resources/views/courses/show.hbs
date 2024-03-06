@@ -1,0 +1,84 @@
+<section class="section course-detail">
+    <div class="row">
+        <div class="col-lg-8">
+            <h2 class="course-detail-name pt-4 pb-4 black-color"> {{course.name}} </h2>
+            <p> {{course.description}} </p>
+            <h2 class="black-color custom-h2 pt-3">Nội dung khóa học</h2>
+            <p class="pt-3 pb-2"><strong> {{course.sections.length}} </strong> chương • <strong> {{countLessons course.sections}} </strong> bài học • Thời lượng <strong>10 giờ 29 phút</strong></p>
+           {{#each course.sections}}
+                <button class="btn-course-section d-flex justify-content-between mb-3" onclick="toggleParagraph(this)">
+                    <span>
+                        <i class="fa-solid fa-plus icon-plus orange-color pl-4 pr-3"></i>
+                        <i class="fa-solid fa-minus icon-minus orange-color pl-4 pr-3 hidden"></i>
+                        {{this.order}}. {{this.name}}
+                    </span>
+                    <p class="pr-4"> {{this.lessons.length}} bài học</p>
+                </button>
+                {{#each this.lessons}}
+                    <p class="course-lesson d-flex justify-content-between hidden">
+                        <span>
+                            <i class="fa-solid fa-circle-play pl-5 pr-2 orange-color"></i>
+                            {{sum @index 1}}. {{this.name}}
+                        </span>
+                    </p>
+                {{/each}}
+            {{/each}}
+        </div>
+        <div class="col-lg-4 d-flex flex-column align-items-center">
+            <iframe
+                class="course-video"
+                src="https://www.youtube.com/embed/{{course.videoID}}"
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen
+            ></iframe>
+
+            {{#if course.isFree}}
+                <h1 class="p-4 orange-color">Miễn Phí</h1>
+            {{/if }}
+            
+            {{#unless course.isFree}}
+                <h1 class="p-4 orange-color">Pro</h1>
+            {{/unless }}
+
+             <button class="btn register-course-btn mb-4">Đăng Ký Học</button>
+
+            <div class="column">
+                <span>
+                    <i class="pr-4 fa-solid fa-gauge-high "></i>
+                    Trình độ {{course.level}}
+                </span>
+                <span>
+                    <i class="pr-4 fa-solid fa-film"></i>
+                    Tổng số <strong>{{countLessons course.sections}}</strong> bài học
+                </span>
+                <span>
+                <i class="pr-4 fa-solid fa-clock"></i>
+                    Thời lượng <strong>{{course.level}}</strong>
+                </span>
+                <span>
+                <i class="pr-4 fa-solid fa-battery-full"></i>
+                    Học mọi lúc, mọi nơi
+                </span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    function toggleParagraph(btn) {
+        const paragraphs = $(btn).nextUntil('.btn-course-section', '.course-lesson');
+        const iconMinus = $(btn).find(".icon-minus");
+        const iconPlus = $(btn).find(".icon-plus");
+        if(paragraphs.hasClass("hidden")){
+            paragraphs.removeClass("hidden");
+            iconMinus.removeClass("hidden");
+            iconPlus.addClass("hidden");
+        }else{
+            paragraphs.addClass("hidden");
+            iconMinus.addClass("hidden");
+            iconPlus.removeClass("hidden");
+        }
+    }
+</script>

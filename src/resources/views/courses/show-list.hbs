@@ -1,0 +1,154 @@
+<div class="container">
+        <div class="custom-margin custom-paddingBottom">
+        <h2 class="custom-h2">Khóa học miễn phí</h2>
+        <div class="row">
+            {{#each courses}}
+            {{#if this.isFree}}
+                <div class="col-sm-6 col-lg-3 mt-4">
+                    <a href="/courses/{{this.slug}}">
+                        <div class="course-card">
+                            <figure class="card-banner img-holder" style="--width: 370; --height: 220">
+                                <img
+                                    src="{{this.image}}"
+                                    alt="{{this.name}}"
+                                    width="370"
+                                    height="220"
+                                    loading="lazy"
+                                    alt="Java Programming Masterclass for Software Developers"
+                                    class="img-cover" />
+                            </figure>
+
+                            <div class="abs-badge">
+                                <ion-icon name="time-outline" aria-hidden="true"></ion-icon>
+
+                                <span class="span">8 Weeks</span>
+                            </div>
+
+                            <div class="card-content p-0">
+                                <h3 class="h3">
+                                    <a href="/courses/{{this.slug}}" class="course-name"> {{this.name}} </a>
+                                </h3>
+
+                                <div class="wrapper">
+                                    <div class="rating-wrapper">
+                                        <ion-icon name="star"></ion-icon>
+                                        <ion-icon name="star"></ion-icon>
+                                        <ion-icon name="star"></ion-icon>
+                                        <ion-icon name="star"></ion-icon>
+                                        <ion-icon name="star"></ion-icon>
+                                    </div>
+
+                                    <p class="rating-text">(4.5 /9 Rating)</p>
+                                </div>
+
+                                <ul class="card-meta-list">
+                                    <li class="card-meta-item">
+                                        <ion-icon name="library-outline" aria-hidden="true"></ion-icon>
+
+                                        <span class="span">{{this.sections.length}}</span>
+                                    </li>
+
+                                    <li class="card-meta-item">
+                                        <ion-icon name="people-outline" aria-hidden="true"></ion-icon>
+
+                                        <span class="span">35 Students</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            {{/if}}
+            {{/each}}
+        </div>
+    </div>
+
+    <div class="custom-margin pb-3">
+        <h2 class="custom-h2">Khóa học pro</h2>
+        <div class="row">
+            {{#each courses}}
+            {{#unless this.isFree}}
+                <div class="col-sm-6 col-lg-3 mt-4">
+                    <a href="/courses/{{this.slug}}">
+                        <div class="course-card">
+                            <figure class="card-banner img-holder" style="--width: 370; --height: 220">
+                                <img
+                                    src="{{this.image}}"
+                                    alt="{{this.name}}"
+                                    width="370"
+                                    height="220"
+                                    loading="lazy"
+                                    alt="Java Programming Masterclass for Software Developers"
+                                    class="img-cover" />
+                            </figure>
+
+                            <div class="abs-badge">
+                                <ion-icon name="time-outline" aria-hidden="true"></ion-icon>
+
+                                <span class="span">8 Weeks</span>
+                            </div>
+
+                            <div class="card-content p-0">
+                                <h3 class="h3">
+                                    <a href="/courses/{{this.slug}}" class="course-name"> {{this.name}} </a>
+                                </h3>
+
+                                <div class="wrapper">
+                                    <div class="rating-wrapper">
+                                        <ion-icon name="star"></ion-icon>
+                                        <ion-icon name="star"></ion-icon>
+                                        <ion-icon name="star"></ion-icon>
+                                        <ion-icon name="star"></ion-icon>
+                                        <ion-icon name="star"></ion-icon>
+                                    </div>
+
+                                    <p class="rating-text">(4.5 /9 Rating)</p>
+                                </div>
+
+                                <ul class="card-meta-list">
+                                    <li class="card-meta-item">
+                                        <ion-icon name="library-outline" aria-hidden="true"></ion-icon>
+
+                                        <span class="span">{{this.sections.length}}</span>
+                                    </li>
+
+                                    <li class="card-meta-item">
+                                        <ion-icon name="people-outline" aria-hidden="true"></ion-icon>
+
+                                        <span class="span">35 Students</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            {{/unless}}
+            {{/each}}
+        </div>
+    </div>
+</div>
+
+{{!--
+<div class="card card-course-item border-0">
+    <a href="/courses/{{this.slug}}">
+        <img src="{{this.image}}" class="card-img-top" alt="{{this.name}}" />
+    </a>
+    <div class="card-body">
+        <a href="/courses/{{this.slug}}" class="course-name"> {{this.name}} </a>
+        {{!--
+        <p class="card-text">{{this.description}}</p>
+        <a href="#" class="btn btn-primary">Mua Khóa Học</a>
+    </div>
+    <ul class="card-meta-list">
+        <li class="card-meta-item">
+            <ion-icon name="library-outline" aria-hidden="true"></ion-icon>
+            <span class="span">8 Lessons</span>
+        </li>
+
+        <li class="card-meta-item">
+            <ion-icon name="people-outline" aria-hidden="true"></ion-icon>
+            <span class="span">20 Students</span>
+        </li>
+    </ul>
+</div>
+--}}

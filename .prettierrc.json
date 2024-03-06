@@ -1,0 +1,10 @@
+{
+  "overrides": [
+    {
+      "files": ["**/*.hbs", "**/*.handlebars"],
+      "options": {
+        "parser": "handlebars"
+      }
+    }
+  ]
+}
